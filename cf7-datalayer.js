@@ -1,0 +1,19 @@
+document.addEventListener('wpcf7submit', async function (event) {
+  var formInputs = event.detail.inputs;
+  var formId = event.detail.contactFormId;
+  var pageId = event.detail.containerPostId;
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/g;
+  var inputs = {}
+ 
+  for ( var i = 0; i < formInputs.length; i++ ) {
+    inputs[formInputs[i].name] = formInputs[i].value;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  dataLayer.push({
+    event: 'cf7_submit',
+    formId: formId,
+    pageId: pageId,
+    inputs: inputs,
+  });
+}, false);

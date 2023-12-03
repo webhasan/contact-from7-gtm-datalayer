@@ -1,4 +1,4 @@
-document.addEventListener('wpcf7submit', async function (event) {
+document.addEventListener('wpcf7submit', function (event) {
   var formInputs = event.detail.inputs;
   var formId = event.detail.contactFormId;
   var pageId = event.detail.containerPostId;
